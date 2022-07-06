@@ -26,5 +26,5 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI)
 
 mongoose.connection.once('open', () => {
-    console.log('conneted to database');
+    console.log('connected to database');
 });
