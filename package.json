@@ -1,0 +1,40 @@
+{
+  "name": "shopping-list-app",
+  "version": "1.0.0",
+  "description": "The Shopping List App is a group project for CSE 341, done in 2022.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmattgiroux/shopping-list-app.git"
+  },
+  "keywords": [
+    "shopping",
+    "list",
+    "node",
+    "npm"
+  ],
+  "authors": {
+    "Michael Cabrera": {},
+    "Angela Brunst": {},
+    "Matthew Christensen": {},
+    "Jared Giroux": {}
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmattgiroux/shopping-list-app/issues"
+  },
+  "homepage": "https://github.com/jmattgiroux/shopping-list-app#readme",
+  "dependencies": {
+    "apollo-server": "^3.9.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "mongoose": "^6.4.3",
+    "nodemon": "^2.0.19"
+  }
+}
