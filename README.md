@@ -8,3 +8,7 @@ Resources:
 
 Pretty much all the code in this commit is from the tutorial here:
 https://towardsdatascience.com/create-your-graphql-api-and-access-your-mongodb-database-via-apollo-server-deployed-on-heroku-9bf8ca410dc8
+
+Resources for fixing the tutorial above:
+https://www.youtube.com/watch?v=htB2uJCf4ws
+https://github.com/cooperlappenbusch/ApolloServerSetup
