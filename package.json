@@ -4,8 +4,8 @@
   "description": "The Shopping List App is a group project for CSE 341, done in 2022.",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js",
-    "start": "node index.js"
+    "test": "nodemon ./src/index.js",
+    "start": "node ./src/index.js"
   },
   "repository": {
     "type": "git",
