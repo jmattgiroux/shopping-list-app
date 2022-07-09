@@ -2,74 +2,73 @@
 // requires for this file
 const { ApolloServer, gql } = require('apollo-server');
 const { connect, model, Schema } = require('mongoose');
-// TODO import typedefs and resolvers
+// TODO import typeDefs and resolvers
 
 // TODO move all the stuff below into other files
 
 // Models
-const messageSchema = new Schema({
-    text: String,
-    createdAt: String,
-    createdBy: String
+const userSchema = new Schema({
+    email: String,
+    password: String,
+    createdAt: String
 });
 
-const Message = model('Message', messageSchema);
+const User = model('User', userSchema);
 
 // resolvers
-const messagesResolvers = {
+const userResolvers = {
     Mutation: {
-        async createMessage(_, { messageInput: { text, username } }) {
-            const newMessage = new Message({
-                text: text,
-                createdBy: username,
+        async createUser(_, { UserInput: { email, password } }) {
+            const newUser = new User({
+                email: email,
+                password: password,
                 createdAt: new Date().toISOString()
             });
 
-            const res = await newMessage.save();
-            console.log(res);
+            const result = await newUser.save();
+            console.log(result);
             return {
-                id: res.id,
-                ...res._doc
+                id: result.id,
+                ...result._doc
             };
         }
     },
     // This is why async await for query:
     // https://stackoverflow.com/questions/68945315/mongooseerror-query-was-already-executed
     Query: {
-        // message: (_, { ID }) => Message.findById(ID)
-        messages: async (_, { }) => await Message.find()
+        // message: (_, { ID }) => User.findById(ID)
+        users: async () => await User.find()
     }
 };
 
 const resolvers = {
     Query: {
-        ...messagesResolvers.Query
+        ...userResolvers.Query
     },
     Mutation: {
-        ...messagesResolvers.Mutation
+        ...userResolvers.Mutation
     },
 };
 
 // types
 const typeDefs = gql`
-type Message {
-    text: String
+type User {
+    email: String
+    password: String
     createdAt: String
-    createdBy: String
 }
 
-input MessageInput {
-    text: String
-    username: String
+input UserInput {
+    email: String!
+    password: String!
 }
 
 type Query {
-    message(id: ID!): Message
-    messages: [Message]
+    users: [User]
 }
 
 type Mutation {
-    createMessage(messageInput: MessageInput): Message!
+    createUser(UserInput: UserInput): User!
 }
 `
 
@@ -86,7 +85,7 @@ const server = new ApolloServer({
     resolvers
 });
 
-connect(url, { useNewUrlParser: true })
+connect(url)
     .then(() => {
         console.log("Database is connected");
         return server.listen({ port });
