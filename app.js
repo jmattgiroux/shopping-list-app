@@ -2,7 +2,7 @@
 // requires for this file
 const { ApolloServer, gql } = require('apollo-server');
 const { connect, model, Schema } = require('mongoose');
-// TODO import typedefs and resolvers
+// TODO import typeDefs and resolvers
 
 // TODO move all the stuff below into other files
 
@@ -36,8 +36,8 @@ const userResolvers = {
     // This is why async await for query:
     // https://stackoverflow.com/questions/68945315/mongooseerror-query-was-already-executed
     Query: {
-        // message: (_, { ID }) => Message.findById(ID)
-        users: async (_, { }) => await User.find()
+        // message: (_, { ID }) => User.findById(ID)
+        users: async () => await User.find()
     }
 };
 
@@ -59,8 +59,8 @@ type User {
 }
 
 input UserInput {
-    email: String
-    password: String
+    email: String!
+    password: String!
 }
 
 type Query {
@@ -85,7 +85,7 @@ const server = new ApolloServer({
     resolvers
 });
 
-connect(url, { useNewUrlParser: true })
+connect(url)
     .then(() => {
         console.log("Database is connected");
         return server.listen({ port });
