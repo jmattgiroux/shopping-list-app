@@ -78,7 +78,7 @@ type Mutation {
 // TODO Move this to model or config file
 require('dotenv').config();
 const url = process.env.DATABASE_URL;
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 // Stuff for this file, app.js
 const server = new ApolloServer({
