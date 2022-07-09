@@ -78,7 +78,7 @@ type Mutation {
 // TODO Move this to model or config file
 require('dotenv').config();
 const url = process.env.DATABASE_URL;
-const port = process.env.port || 3000;
+const PORT = process.env.port || 3000;
 
 // Stuff for this file, app.js
 const server = new ApolloServer({
@@ -89,7 +89,7 @@ const server = new ApolloServer({
 connect(url, { useNewUrlParser: true })
     .then(() => {
         console.log("Database is connected");
-        return server.listen({ port });
+        return server.listen({ PORT });
     })
     .then((result) => {
         console.log("Server running at " + result.url);
