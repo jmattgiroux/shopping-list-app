@@ -2,7 +2,6 @@ const { ApolloServer, gql } = require('apollo-server');
 
 const typeDefs = gql`
 
-# Where I found the Response Definition stuff: https://www.apollographql.com/tutorials/fullstack-quickstart/building-a-schema 
 # General Definitions
 type Response {
     success: Boolean!
@@ -48,7 +47,7 @@ type Query {
 type Mutation {
     # user mutations
     createUser(UserInput: UserInput): User!
-    deleteUser(UserId: UserId): Response!
+    deleteUser(UserId: UserId): User!
     updateUser(UserInput: UserInput, UserId: UserId): User!
 
     # ingredient mutations

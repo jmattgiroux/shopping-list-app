@@ -17,11 +17,11 @@ const userResolvers = {
             };
         },
 
-        // Resource for this method: https://mongoosejs.com/docs/tutorials/findoneandupdate.html#atomic-updates
         async updateUser(_, { UserInput: { email, password }, UserId: { id } }) {
 
             const update = { email, password };
 
+            // documentation: https://mongoosejs.com/docs/api.html#model_Model-findByIdAndUpdate
             let result = await User.findByIdAndUpdate(id, update, {
                 returnDocument: 'after'
             })
@@ -30,12 +30,22 @@ const userResolvers = {
                 id: result.id,
                 ...result._doc
             };
+        },
+
+        async deleteUser(_, { UserId: { id } }) {
+
+            // documentation for this: https://mongoosejs.com/docs/api.html#model_Model-findByIdAndRemove
+            let result = await User.findByIdAndRemove(id)
+
+            return {
+                id: result.id,
+                ...result._doc
+            };
         }
     },
-    // This is why async await for query:
-    // https://stackoverflow.com/questions/68945315/mongooseerror-query-was-already-executed
+
+
     Query: {
-        // users: (_, { ID }) => User.findById(ID)
         users: async () => await User.find()
     }
 };
