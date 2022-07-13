@@ -18,7 +18,7 @@ const ingredientResolvers = {
     },
     Query: {
         // ingredients: (_, { ID }) => Ingredient.findById(ID)
-        ingredients: async() => await Ingredient.find()
+        ingredients: async () => await Ingredient.find({})
     }
 };
 

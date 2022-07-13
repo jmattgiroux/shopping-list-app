@@ -11,6 +11,7 @@ type Response {
 
 # User Related Definitions
 type User {
+    id: String
     email: String
     password: String
     createdAt: String
@@ -48,7 +49,7 @@ type Mutation {
     # user mutations
     createUser(UserInput: UserInput): User!
     deleteUser(UserId: UserId): Response!
-    updateUser(UserId: UserId): Response!
+    updateUser(UserInput: UserInput, UserId: UserId): User!
 
     # ingredient mutations
     createIngredient(IngredientInput: IngredientInput): Ingredient!
