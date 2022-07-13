@@ -7,6 +7,8 @@ const { connect, model, Schema } = require('mongoose');
 // TODO move all the stuff below into other files
 
 // Models
+
+//User Model
 const userSchema = new Schema({
     email: String,
     password: String,
@@ -15,7 +17,16 @@ const userSchema = new Schema({
 
 const User = model('User', userSchema);
 
+//Ingredient Model
+const ingredientSchema = new Schema({
+    name: String,
+    createdAt: String
+});
+
+const Ingredient = model('Ingredient', ingredientSchema);
+
 // resolvers
+// User Revolver
 const userResolvers = {
     Mutation: {
         async createUser(_, { UserInput: { email, password } }) {
@@ -36,22 +47,50 @@ const userResolvers = {
     // This is why async await for query:
     // https://stackoverflow.com/questions/68945315/mongooseerror-query-was-already-executed
     Query: {
-        // message: (_, { ID }) => User.findById(ID)
-        users: async () => await User.find()
+        // users: (_, { ID }) => User.findById(ID)
+        users: async() => await User.find()
     }
 };
 
+
+// Ingredient Revolver
+const ingredientResolvers = {
+    Mutation: {
+        async createIngredient(_, { IngredientInput: { name } }) {
+            const newIngredient = new Ingredient({
+                name: name,
+                createdAt: new Date().toISOString()
+            });
+
+            const result = await newIngredient.save();
+            console.log(result);
+            return {
+                id: result.id,
+                ...result._doc
+            };
+        }
+    },
+    Query: {
+        // ingredients: (_, { ID }) => Ingredient.findById(ID)
+        ingredients: async() => await Ingredient.find()
+    }
+};
+
+//All Resolvers
 const resolvers = {
     Query: {
-        ...userResolvers.Query
+        ...userResolvers.Query,
+        ...ingredientResolvers.Query
     },
     Mutation: {
-        ...userResolvers.Mutation
+        ...userResolvers.Mutation,
+        ...ingredientResolvers.Mutation
     },
 };
 
+
 // types
-const typeDefs = gql`
+const typeDefs = gql `
 type User {
     email: String
     password: String
@@ -63,12 +102,23 @@ input UserInput {
     password: String!
 }
 
+type Ingredient {
+    name: String
+    createdAt: String
+}
+
+input IngredientInput {
+    name: String!
+}
+
 type Query {
     users: [User]
+    ingredients: [Ingredient]
 }
 
 type Mutation {
     createUser(UserInput: UserInput): User!
+    createIngredient(IngredientInput: IngredientInput): Ingredient!
 }
 `
 
