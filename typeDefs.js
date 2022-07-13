@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { gql } = require('apollo-server');
 
 const typeDefs = gql`
 
@@ -30,6 +30,10 @@ input IngredientInput {
     name: String!
 }
 
+input IngredientId {
+    id: String!
+}
+
 type Query {
     # user queries
     users: [User]
@@ -37,6 +41,7 @@ type Query {
 
     # ingredient queries
     ingredients: [Ingredient]
+    ingredient(IngredientId: IngredientId): Ingredient!
 }
 
 type Mutation {
@@ -47,6 +52,8 @@ type Mutation {
 
     # ingredient mutations
     createIngredient(IngredientInput: IngredientInput): Ingredient!
+    deleteIngredient(IngredientId: IngredientId): Ingredient!
+    updateIngredient(IngredientInput: IngredientInput, IngredientId: IngredientId): Ingredient!
 }
 `;
 
