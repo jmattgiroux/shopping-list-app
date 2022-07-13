@@ -46,7 +46,8 @@ const userResolvers = {
 
 
     Query: {
-        users: async () => await User.find()
+        users: async () => await User.find(),
+        user: async (_, { UserId: { id } }) => await User.findById(id)
     }
 };
 

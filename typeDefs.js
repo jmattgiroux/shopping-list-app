@@ -2,12 +2,6 @@ const { ApolloServer, gql } = require('apollo-server');
 
 const typeDefs = gql`
 
-# General Definitions
-type Response {
-    success: Boolean!
-    message: String
-}
-
 # User Related Definitions
 type User {
     id: String
@@ -39,6 +33,7 @@ input IngredientInput {
 type Query {
     # user queries
     users: [User]
+    user(UserId: UserId): User!
 
     # ingredient queries
     ingredients: [Ingredient]
