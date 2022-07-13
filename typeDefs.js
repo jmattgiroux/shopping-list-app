@@ -1,6 +1,15 @@
 const { ApolloServer, gql } = require('apollo-server');
 
-const typeDefs = gql `
+const typeDefs = gql`
+
+# Where I found the Response Definition stuff: https://www.apollographql.com/tutorials/fullstack-quickstart/building-a-schema 
+# General Definitions
+type Response {
+    success: Boolean!
+    message: String
+}
+
+# User Related Definitions
 type User {
     email: String
     password: String
@@ -12,6 +21,12 @@ input UserInput {
     password: String!
 }
 
+input UserId {
+    id: String!
+}
+
+# Ingredient related definitions
+
 type Ingredient {
     name: String
     createdAt: String
@@ -22,12 +37,20 @@ input IngredientInput {
 }
 
 type Query {
+    # user queries
     users: [User]
+
+    # ingredient queries
     ingredients: [Ingredient]
 }
 
 type Mutation {
+    # user mutations
     createUser(UserInput: UserInput): User!
+    deleteUser(UserId: UserId): Response!
+    updateUser(UserId: UserId): Response!
+
+    # ingredient mutations
     createIngredient(IngredientInput: IngredientInput): Ingredient!
 }
 `;
