@@ -1,4 +1,4 @@
-const { connect, model, Schema } = require('mongoose');
+const { model, Schema } = require('mongoose');
 
 const ingredientSchema = new Schema({
     name: String,

@@ -10,18 +10,44 @@ const userResolvers = {
             });
 
             const result = await newUser.save();
-            console.log(result);
+
+            return {
+                id: result.id,
+                ...result._doc
+            };
+        },
+
+        async updateUser(_, { UserInput: { email, password }, UserId: { id } }) {
+
+            const update = { email, password };
+
+            // documentation: https://mongoosejs.com/docs/api.html#model_Model-findByIdAndUpdate
+            let result = await User.findByIdAndUpdate(id, update, {
+                returnDocument: 'after'
+            })
+
+            return {
+                id: result.id,
+                ...result._doc
+            };
+        },
+
+        async deleteUser(_, { UserId: { id } }) {
+
+            // documentation for this: https://mongoosejs.com/docs/api.html#model_Model-findByIdAndRemove
+            let result = await User.findByIdAndRemove(id)
+
             return {
                 id: result.id,
                 ...result._doc
             };
         }
     },
-    // This is why async await for query:
-    // https://stackoverflow.com/questions/68945315/mongooseerror-query-was-already-executed
+
+
     Query: {
-        // users: (_, { ID }) => User.findById(ID)
-        users: async() => await User.find()
+        users: async () => await User.find(),
+        user: async (_, { UserId: { id } }) => await User.findById(id)
     }
 };
 
