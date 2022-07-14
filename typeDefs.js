@@ -35,6 +35,18 @@ input IngredientId {
     id: String!
 }
 
+# ShoppingList related definitions
+
+type ShoppingList {
+    id: String
+    user: User
+    ingredients: [Ingredient]
+}
+
+input ShoppingListId {
+    id: String!
+}
+
 type Query {
     # user queries
     users: [User]
@@ -43,6 +55,10 @@ type Query {
     # ingredient queries
     ingredients: [Ingredient]
     ingredient(IngredientId: IngredientId): Ingredient!
+
+    #shoppingList queries
+    shoppingLists: [ShoppingList]
+    shoppingList(ShoppingListId: ShoppingListId): ShoppingList!
 }
 
 type Mutation {
