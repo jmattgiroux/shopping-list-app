@@ -14,11 +14,38 @@ const ingredientResolvers = {
                 id: result.id,
                 ...result._doc
             };
+        },
+
+        async updateIngredient(_, { IngredientInput: { name }, IngredientId: { id } }) {
+
+            const update = { name };
+
+            // documentation: https://mongoosejs.com/docs/api.html#model_Model-findByIdAndUpdate
+            let result = await Ingredient.findByIdAndUpdate(id, update, {
+                returnDocument: 'after'
+            })
+
+            return {
+                id: result.id,
+                ...result._doc
+            };
+        },
+
+        async deleteIngredient(_, { IngredientId: { id } }) {
+
+            // documentation for this: https://mongoosejs.com/docs/api.html#model_Model-findByIdAndRemove
+            let result = await Ingredient.findByIdAndRemove(id)
+
+            return {
+                id: result.id,
+                ...result._doc
+            };
         }
     },
     Query: {
-        // ingredients: (_, { ID }) => Ingredient.findById(ID)
-        ingredients: async () => await Ingredient.find({})
+        ingredients: async () => await Ingredient.find({}),
+        ingredient: async (_, { IngredientId: { id } }) => await Ingredient.findById(id)
+
     }
 };
 

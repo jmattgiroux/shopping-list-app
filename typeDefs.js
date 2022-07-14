@@ -22,6 +22,7 @@ input UserId {
 # Ingredient related definitions
 
 type Ingredient {
+    id: String
     name: String
     createdAt: String
 }
