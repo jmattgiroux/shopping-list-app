@@ -1,0 +1,52 @@
+[
+  {
+    "user": {
+      "_id": "62ce0d59c50b30130e0aa5a7",
+      "email": "test123@gmail.com",
+      "password": "testing",
+      "createdAt": "2022-07-13T00:10:01.440Z"
+    },
+    "foodItems": {
+      "1": {
+        "_id": "62ce20ad651fdd8b64f8a782",
+        "name": "sugar",
+        "createdAt": "2022-07-13T01:32:29.417Z"
+      },
+      "2": {
+        "_id": "62ce88e237db2c4abdb032e4",
+        "name": "salt",
+        "createdAt": "2022-07-13T08:57:06.108Z"
+      },
+      "3": {
+        "_id": "62cf43deddd8221890929721",
+        "name": "cinnamon",
+        "createdAt": "2022-07-13T22:14:54.776Z"
+      }
+    }
+  },
+  {
+    "user": {
+      "_id": "62cf554ea890caf8a7619d70",
+      "email": "testEmail5",
+      "password": "testPassword5",
+      "createdAt": "2022-07-13T23:29:18.748Z"
+    },
+    "foodItems": {
+      "1": {
+        "_id": "62cf7ec97936501d42983311",
+        "name": "milk",
+        "createdAt": "2022-07-14T02:26:17.649Z"
+      },
+      "2": {
+        "_id": "62cf7ee87936501d42983313",
+        "name": "apple",
+        "createdAt": "2022-07-14T02:26:48.348Z"
+      },
+      "3": {
+        "_id": "62cf7eff7936501d42983315",
+        "name": "pear",
+        "createdAt": "2022-07-14T02:27:11.020Z"
+      }
+    }
+  }
+]
