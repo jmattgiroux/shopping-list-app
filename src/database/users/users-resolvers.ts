@@ -1,3 +1,4 @@
+(() => {
 const User = require('./users-model');
 
 const userResolvers = {
@@ -52,3 +53,5 @@ const userResolvers = {
 };
 
 module.exports = userResolvers;
+
+})();

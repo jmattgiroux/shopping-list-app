@@ -1,5 +1,6 @@
-const userResolvers = require('./users/users-resolvers');
-const ingredientResolvers = require('./ingredients/ingredients-resolvers');
+(() => {
+const userResolvers = require('./database/users/users-resolvers');
+const ingredientResolvers = require('./database/ingredients/ingredients-resolvers');
 
 const resolvers = {
     Query: {
@@ -13,3 +14,4 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+})();

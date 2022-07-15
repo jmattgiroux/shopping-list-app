@@ -2,13 +2,27 @@
 
 The Shopping List App is a group project for CSE 341, done in 2022.
 
-Resources:  
-[GraphQL Setup](https://medium.com/@utkarshprakash/setting-up-graphql-server-with-nodejs-express-and-mongodb-d72fba13216)  
-[Apollo Server and Heroku Setup](https://towardsdatascience.com/create-your-graphql-api-and-access-your-mongodb-database-via-apollo-server-deployed-on-heroku-9bf8ca410dc8)
+## Development Environment Setup
 
-Pretty much all the code in this commit is from the tutorial here:
-https://towardsdatascience.com/create-your-graphql-api-and-access-your-mongodb-database-via-apollo-server-deployed-on-heroku-9bf8ca410dc8
+- first get git and npm installed and working on your computer.
 
-Resources for fixing the tutorial above:
-https://www.youtube.com/watch?v=htB2uJCf4ws
-https://github.com/cooperlappenbusch/ApolloServerSetup
+- then run the following commands:
+
+```ts
+git clone https://github.com/jmattgiroux/shopping-list-app.git
+// then cd into the project directory
+npm install
+```
+
+- now you can get to work.
+
+## Build and Test Instructions:
+
+- delete the
+- run the following command:
+
+```ts
+npm run start
+```
+
+- The command above will rebuild the code in the build folder and then run it.

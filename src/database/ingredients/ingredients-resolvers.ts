@@ -1,3 +1,4 @@
+(() => {
 const Ingredient = require('./ingredients-model');
 
 const ingredientResolvers = {
@@ -50,3 +51,5 @@ const ingredientResolvers = {
 };
 
 module.exports = ingredientResolvers;
+
+})();
