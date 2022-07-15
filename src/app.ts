@@ -12,6 +12,7 @@ const server = new ApolloServer({
     resolvers
 });
 
+
 connect(url)
     .then(() => {
         console.log("Database is connected");

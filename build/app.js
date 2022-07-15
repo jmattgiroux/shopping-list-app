@@ -11,10 +11,10 @@
     });
     connect(url)
         .then(function () {
-        console.log("Database is connected");
-        return server.listen({ port: port });
-    })
+            console.log("Database is connected");
+            return server.listen({ port: port });
+        })
         .then(function (result) {
-        console.log("Server running at " + result.url);
-    });
+            console.log("Server running at " + result.url);
+        });
 })();
