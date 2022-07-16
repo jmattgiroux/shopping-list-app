@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 
-const typeDefs = gql`
+const typeDefs = gql `
 
 # User Related Definitions
 type User {
@@ -35,6 +35,26 @@ input IngredientId {
     id: String!
 }
 
+# Shopping List related definitions
+
+type ShoppingList {
+    id: String
+    name: String
+    user: String
+    ingredients: [String]
+    createdAt: String
+}
+
+input ShoppingListInput {
+    name: String!
+    user: String!
+    ingredients: [String]
+}
+
+input ShoppingListId {
+    id: String!
+}
+
 type Query {
     # user queries
     users: [User]
@@ -43,6 +63,10 @@ type Query {
     # ingredient queries
     ingredients: [Ingredient]
     ingredient(IngredientId: IngredientId): Ingredient!
+
+    # shopping list queries
+    shoppingLists: [ShoppingList]
+    shoppingList(ShoppingListId: ShoppingListId): ShoppingList!
 }
 
 type Mutation {
@@ -55,6 +79,11 @@ type Mutation {
     createIngredient(IngredientInput: IngredientInput): Ingredient!
     deleteIngredient(IngredientId: IngredientId): Ingredient!
     updateIngredient(IngredientInput: IngredientInput, IngredientId: IngredientId): Ingredient!
+
+    # shopping list mutations
+    createShoppingList(ShoppingListInput: ShoppingListInput): ShoppingList!
+    deleteShoppingList(ShoppingListId: ShoppingListId): ShoppingList!
+    updateShoppingList(ShoppingListInput: ShoppingListInput, ShoppingListId: ShoppingListId): ShoppingList!
 }
 `;
 
