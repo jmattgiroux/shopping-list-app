@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('graphql-tag');
 
 const typeDefs = gql `
 
@@ -39,14 +39,12 @@ input IngredientId {
 
 type ShoppingList {
     id: String
-    name: String
-    user: String
-    ingredients: [String]
+    user: User
+    ingredients: [Ingredient]
     createdAt: String
 }
 
 input ShoppingListInput {
-    name: String!
     user: String!
     ingredients: [String]
 }

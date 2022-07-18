@@ -4,9 +4,8 @@ const ShoppingList = require('./shopping-list-model');
 
 const shoppingListResolvers = {
     Mutation: {
-        async createShoppingList(_, { ShoppingListInput: { name, user, ingredient } }) {
+        async createShoppingList(_, { ShoppingListInput: { user, ingredient } }) {
             const newShoppingList = new ShoppingList({
-                name: name,
                 user: User,
                 ingredient: [Ingredient],
                 createdAt: new Date().toISOString()
@@ -20,9 +19,9 @@ const shoppingListResolvers = {
             };
         },
 
-        async updateShoppingList(_, { ShoppingListInput: { name, user, ingredient }, ShoppingListId: { id } }) {
+        async updateShoppingList(_, { ShoppingListInput: { user, ingredient }, ShoppingListId: { id } }) {
 
-            const update = { name, user, ingredient };
+            const update = { user, ingredient };
 
             // documentation: https://mongoosejs.com/docs/api.html#model_Model-findByIdAndUpdate
             let result = await ShoppingList.findByIdAndUpdate(id, update, {
@@ -47,7 +46,7 @@ const shoppingListResolvers = {
         }
     },
     Query: {
-        shoppingList: async() => await ShoppingList.find({}),
+        shoppingLists: async() => await ShoppingList.find({}),
         shoppingList: async(_, { ShoppingListId: { id } }) => await ShoppingList.findById(id)
 
     }
