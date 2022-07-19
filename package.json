@@ -4,8 +4,11 @@
   "description": "The Shopping List App is a group project for CSE 341, done in 2022.",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon app.js",
-    "start": "node app.js "
+    "clean": "rimraf ./build/*",
+    "build": "npm run clean && tsc",
+    "start": "npm run build && node ./build/app.js ",
+    "test": "nodemon ./build/app.js",
+    "reinstall": "rimraf ./node_modules && npm i"
   },
   "repository": {
     "type": "git",
@@ -32,7 +35,11 @@
     "apollo-server": "^3.9.0",
     "dotenv": "^16.0.1",
     "graphql": "^15.8.0",
-    "mongoose": "^6.4.4",
-    "nodemon": "^2.0.19"
+    "mongoose": "^6.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
   }
 }
