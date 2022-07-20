@@ -1,6 +1,6 @@
 (function () {
-    var _a = require('apollo-server'), ApolloServer = _a.ApolloServer, gql = _a.gql;
-    var _b = require('mongoose'), connect = _b.connect, model = _b.model, Schema = _b.Schema;
+    var ApolloServer = require('apollo-server').ApolloServer;
+    var connect = require('mongoose').connect;
     var url = require('./database/config');
     var typeDefs = require('./typeDefs');
     var resolvers = require('./resolvers');
@@ -11,10 +11,10 @@
     });
     connect(url)
         .then(function () {
-            console.log("Database is connected");
-            return server.listen({ port: port });
-        })
+        console.log("Database is connected");
+        return server.listen({ port: port });
+    })
         .then(function (result) {
-            console.log("Server running at " + result.url);
-        });
+        console.log("Server running at " + result.url);
+    });
 })();

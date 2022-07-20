@@ -3,7 +3,7 @@
     "outDir": "./build",
     "allowJs": true,
     "target": "es5",
-    "types": ["node"] //need to add jest as type later on
+    "types": ["node", "jest"] //need to add jest as type later on
   },
   "include": ["./src/**/*"]
 }

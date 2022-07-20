@@ -1,45 +1,56 @@
 {
-  "name": "shopping-list-app",
-  "version": "1.0.0",
-  "description": "The Shopping List App is a group project for CSE 341, done in 2022.",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rimraf ./build/*",
-    "build": "npm run clean && tsc",
-    "start": "npm run build && node ./build/app.js ",
-    "test": "nodemon ./build/app.js",
-    "reinstall": "rimraf ./node_modules && npm i"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jmattgiroux/shopping-list-app.git"
-  },
-  "keywords": [
-    "shopping",
-    "list",
-    "node",
-    "npm"
-  ],
-  "authors": {
-    "Michael Cabrera": {},
-    "Angela Brunst": {},
-    "Matthew Christensen": {},
-    "Jared Giroux": {}
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jmattgiroux/shopping-list-app/issues"
-  },
-  "homepage": "https://github.com/jmattgiroux/shopping-list-app#readme",
-  "dependencies": {
-    "apollo-server": "^3.9.0",
-    "dotenv": "^16.0.1",
-    "graphql": "^15.8.0",
-    "mongoose": "^6.4.4"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.19",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.7.4"
-  }
+    "name": "shopping-list-app",
+    "version": "1.0.0",
+    "description": "The Shopping List App is a group project for CSE 341, done in 2022.",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rimraf ./build/*",
+        "build": "npm run clean && tsc",
+        "start": "npm run build && node ./build/app.js ",
+        "test": "nodemon ./build/app.js",
+        "testing": "jest --coverage --detectOpenHandles",
+        "reinstall": "rimraf ./node_modules && npm i"
+    },
+    "jest": {
+        "collectCoverage": true,
+        "coverageReporters": ["html"]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jmattgiroux/shopping-list-app.git"
+    },
+    "keywords": [
+        "shopping",
+        "list",
+        "node",
+        "npm"
+    ],
+    "authors": {
+        "Michael Cabrera": {},
+        "Angela Brunst": {},
+        "Matthew Christensen": {},
+        "Jared Giroux": {}
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jmattgiroux/shopping-list-app/issues"
+    },
+    "homepage": "https://github.com/jmattgiroux/shopping-list-app#readme",
+    "dependencies": {
+        "apollo-server": "^3.9.0",
+        "dotenv": "^16.0.1",
+        "graphql": "^15.8.0",
+        "mongoose": "^6.4.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.18.9",
+        "@babel/preset-env": "^7.18.9",
+        "@babel/preset-typescript": "^7.18.6",
+        "@types/jest": "^28.1.6",
+        "babel-jest": "^28.1.3",
+        "nodemon": "^2.0.19",
+        "rimraf": "^3.0.2",
+        "ts-jest": "^28.0.7",
+        "typescript": "^4.7.4"
+    }
 }
