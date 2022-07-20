@@ -12,10 +12,6 @@
         "reinstall": "rimraf ./node_modules && npm i"
     },
     "jest": {
-        "collectCoverage": true,
-        "coverageReporters": [
-            "html"
-        ],
         "testPathIgnorePatterns": [
             "/src/",
             "node_modules"
