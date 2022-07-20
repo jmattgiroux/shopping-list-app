@@ -36,6 +36,24 @@ input IngredientId {
     id: String!
 }
 
+# Category related definitions
+
+type Category {
+    id: String
+    name: String
+    ingredient: [String]
+    createdAt: String
+}
+
+input CategoryInput {
+    name: String!
+    ingredient: [String]
+}
+
+input CategoryId {
+    id: String!
+}
+
 type Query {
     # user queries
     users: [User]
@@ -44,6 +62,10 @@ type Query {
     # ingredient queries
     ingredients: [Ingredient]
     ingredient(IngredientId: IngredientId): Ingredient!
+
+    # category queries
+    categories: [Category]
+    category(CategoryId: CategoryId): Category!
 }
 
 type Mutation {
@@ -56,6 +78,11 @@ type Mutation {
     createIngredient(IngredientInput: IngredientInput): Ingredient!
     deleteIngredient(IngredientId: IngredientId): Ingredient!
     updateIngredient(IngredientInput: IngredientInput, IngredientId: IngredientId): Ingredient!
+
+    # category mutations
+    createCategory(CategoryInput: CategoryInput): Category!
+    deleteCategory(CategoryId: CategoryId): Category!
+    updateCategory(CategoryInput: CategoryInput, CategoryId: CategoryId): Category!
 }
 `;
 
