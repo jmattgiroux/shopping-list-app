@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
-    "outDir": "./build",
-    "allowJs": true,
-    "target": "es5",
-    "types": ["node", "jest"] //need to add jest as type later on
-  },
-  "include": ["./src/**/*"]
+    "compilerOptions": {
+        "outDir": "./build",
+        "allowJs": true,
+        "target": "es5",
+        "types": ["jest", "node"]
+    },
+    "include": ["./src/**/*"]
 }
