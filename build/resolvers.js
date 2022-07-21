@@ -12,9 +12,10 @@ var __assign = (this && this.__assign) || function () {
 (function () {
     var userResolvers = require('./database/users/users-resolvers');
     var ingredientResolvers = require('./database/ingredients/ingredients-resolvers');
+    var categoryResolvers = require('./database/categories/categories-resolvers');
     var resolvers = {
-        Query: __assign(__assign({}, userResolvers.Query), ingredientResolvers.Query),
-        Mutation: __assign(__assign({}, userResolvers.Mutation), ingredientResolvers.Mutation),
+        Query: __assign(__assign(__assign({}, userResolvers.Query), ingredientResolvers.Query), categoryResolvers.Query),
+        Mutation: __assign(__assign(__assign({}, userResolvers.Mutation), ingredientResolvers.Mutation), categoryResolvers.Mutation),
     };
     module.exports = resolvers;
 })();
