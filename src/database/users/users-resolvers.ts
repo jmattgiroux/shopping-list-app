@@ -50,6 +50,5 @@
             user: async (_, { UserId: { id } }) => await User.findById(id),
         },
     };
-
     module.exports = userResolvers;
 })();

@@ -8,7 +8,7 @@
         "build": "npm run clean && tsc",
         "start": "npm run build && node ./build/app.js ",
         "test": "nodemon",
-        "testbed": "jest",
+        "testbed": "jest --detectOpenHandles",
         "reinstall": "rimraf ./node_modules && npm i"
     },
     "jest": {

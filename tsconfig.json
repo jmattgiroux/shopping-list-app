@@ -7,3 +7,4 @@
     },
     "include": ["./src/**/*"]
 }
+// We should add an option for it to create a test build and a production build (i.e. one without the testing code).

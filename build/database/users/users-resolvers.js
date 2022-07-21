@@ -48,7 +48,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 (function () {
     var User = require("./users-model");
-    // test comment
     var userResolvers = {
         Mutation: {
             createUser: function (_, _a) {
