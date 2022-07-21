@@ -8,13 +8,13 @@ const resolvers = {
     Query: {
         ...userResolvers.Query,
         ...ingredientResolvers.Query,
-        ...shoppingListResolvers.Query
+        ...shoppingListResolvers.Query,
         ...categoryResolvers.Query
     },
     Mutation: {
         ...userResolvers.Mutation,
         ...ingredientResolvers.Mutation,
-        ...shoppingListResolvers.Mutation
+        ...shoppingListResolvers.Mutation,
         ...categoryResolvers.Mutation
     },
 };

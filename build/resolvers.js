@@ -15,8 +15,8 @@ var __assign = (this && this.__assign) || function () {
     var shoppingListResolvers = require('./database/shopping-list/shopping-list-resolvers');
     var categoryResolvers = require('./database/categories/categories-resolvers');
     var resolvers = {
-        Query: __assign(__assign(__assign({}, userResolvers.Query), ingredientResolvers.Query), shoppingListResolvers.Query), categoryResolvers.Query),
-        Mutation: __assign(__assign(__assign({}, userResolvers.Mutation), ingredientResolvers.Mutation), shoppingListResolvers.Mutation), categoryResolvers.Mutation),
+        Query: __assign(__assign(__assign(__assign({}, userResolvers.Query), ingredientResolvers.Query), shoppingListResolvers.Query), categoryResolvers.Query),
+        Mutation: __assign(__assign(__assign(__assign({}, userResolvers.Mutation), ingredientResolvers.Mutation), shoppingListResolvers.Mutation), categoryResolvers.Mutation),
     };
     module.exports = resolvers;
 })();
