@@ -47,7 +47,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 (function () {
-    var Ingredient = require('./ingredients-model');
+    var Ingredient = require("./ingredients-model");
     var ingredientResolvers = {
         Mutation: {
             createIngredient: function (_, _a) {
@@ -59,7 +59,7 @@ var _this = this;
                             case 0:
                                 newIngredient = new Ingredient({
                                     name: name,
-                                    createdAt: new Date().toISOString()
+                                    createdAt: new Date().toISOString(),
                                 });
                                 return [4 /*yield*/, newIngredient.save()];
                             case 1:
@@ -79,7 +79,7 @@ var _this = this;
                             case 0:
                                 update = { name: name };
                                 return [4 /*yield*/, Ingredient.findByIdAndUpdate(id, update, {
-                                        returnDocument: 'after'
+                                        returnDocument: "after",
                                     })];
                             case 1:
                                 result = _b.sent();
@@ -101,7 +101,7 @@ var _this = this;
                         }
                     });
                 });
-            }
+            },
         },
         Query: {
             ingredients: function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -118,8 +118,8 @@ var _this = this;
                         case 1: return [2 /*return*/, _b.sent()];
                     }
                 }); });
-            }
-        }
+            },
+        },
     };
     module.exports = ingredientResolvers;
 })();

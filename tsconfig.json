@@ -1,9 +1,10 @@
 {
-  "compilerOptions": {
-    "outDir": "./build",
-    "allowJs": true,
-    "target": "es5",
-    "types": ["node"] //need to add jest as type later on
-  },
-  "include": ["./src/**/*"]
+    "compilerOptions": {
+        "outDir": "./build",
+        "allowJs": true,
+        "target": "es5",
+        "types": ["jest", "node"]
+    },
+    "include": ["./src/**/*"]
 }
+// We should add an option for it to create a test build and a production build (i.e. one without the testing code).
