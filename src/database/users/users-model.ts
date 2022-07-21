@@ -1,13 +1,13 @@
 (() => {
-const { model, Schema } = require('mongoose');
+    const { model, Schema } = require("mongoose");
 
-const userSchema = new Schema({
-    email: String,
-    password: String,
-    createdAt: String
-});
+    const userSchema = new Schema({
+        email: String,
+        password: String,
+        createdAt: String,
+    });
 
-const User = model('User', userSchema);
+    const User = model("User", userSchema);
 
-module.exports = User;
+    module.exports = User;
 })();

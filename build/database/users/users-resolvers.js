@@ -47,7 +47,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 (function () {
-    var User = require('./users-model');
+    var User = require("./users-model");
     var userResolvers = {
         Mutation: {
             createUser: function (_, _a) {
@@ -60,7 +60,7 @@ var _this = this;
                                 newUser = new User({
                                     email: email,
                                     password: password,
-                                    createdAt: new Date().toISOString()
+                                    createdAt: new Date().toISOString(),
                                 });
                                 return [4 /*yield*/, newUser.save()];
                             case 1:
@@ -79,7 +79,7 @@ var _this = this;
                             case 0:
                                 update = { email: email, password: password };
                                 return [4 /*yield*/, User.findByIdAndUpdate(id, update, {
-                                        returnDocument: 'after'
+                                        returnDocument: "after",
                                     })];
                             case 1:
                                 result = _c.sent();
@@ -101,7 +101,7 @@ var _this = this;
                         }
                     });
                 });
-            }
+            },
         },
         Query: {
             users: function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -118,8 +118,8 @@ var _this = this;
                         case 1: return [2 /*return*/, _b.sent()];
                     }
                 }); });
-            }
-        }
+            },
+        },
     };
     module.exports = userResolvers;
 })();

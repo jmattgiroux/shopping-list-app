@@ -1,6 +1,6 @@
 (() => {
-const { ApolloServer, gql } = require('apollo-server');
-const { connect, model, Schema } = require('mongoose');
+const { ApolloServer } = require('apollo-server');
+const { connect } = require('mongoose');
 const url = require('./database/config');
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
