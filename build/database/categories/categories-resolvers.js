@@ -48,7 +48,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 (function () {
     var Category = require("./categories-model");
-    // const Ingredient = require('../ingredients/ingredients-model');
     var categoryResolvers = {
         Mutation: {
             createCategory: function (_, _a) {
@@ -60,7 +59,7 @@ var _this = this;
                             case 0:
                                 newCategory = new Category({
                                     name: name,
-                                    ingredient: [ingredient],
+                                    ingredientList: [ingredient],
                                     createdAt: new Date().toISOString()
                                 });
                                 return [4 /*yield*/, newCategory.save()];

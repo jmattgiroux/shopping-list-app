@@ -1,13 +1,12 @@
 (() => {
 const Category = require("./categories-model");
-// const Ingredient = require('../ingredients/ingredients-model');
 
 const categoryResolvers = {
     Mutation: {
         async createCategory(_, { CategoryInput: { name, ingredient } }) {
             const newCategory = new Category({
                 name: name,
-                ingredient: [ingredient],
+                ingredientList: [ingredient],
                 createdAt: new Date().toISOString()
             });
 

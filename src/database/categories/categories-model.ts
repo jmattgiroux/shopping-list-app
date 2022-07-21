@@ -3,7 +3,7 @@
 
     const categorySchema = new Schema({
         name: String,
-        // ingredient: [String],
+        ingredientList: [String],
         createdAt: String
     });
 
